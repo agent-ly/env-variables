@@ -1,10 +1,14 @@
 {
   "name": "env-variables",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple environment variable manager, use along with dotenv!",
   "author": "agent-ly",
   "license": "MIT",
-  "keywords": ["env", "environment", "variables"],
+  "keywords": [
+    "env",
+    "environment",
+    "variables"
+  ],
   "files": [
     "./dist/**/*"
   ],
