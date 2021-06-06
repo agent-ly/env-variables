@@ -1,0 +1,28 @@
+{
+  "name": "env-vars",
+  "version": "1.0.0",
+  "description": "Simple environment variable manager, use along with dotenv!",
+  "author": "agent-ly",
+  "license": "MIT",
+  "files": [
+    "./dist/**/*"
+  ],
+  "main": "./dist/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest --config jestconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test",
+    "version": "git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.23",
+    "@types/node": "^15.12.1",
+    "dotenv": "^10.0.0",
+    "jest": "^27.0.4",
+    "ts-jest": "^27.0.3",
+    "typescript": "^4.3.2"
+  }
+}
