@@ -4,6 +4,7 @@
   "description": "Simple environment variable manager, use along with dotenv!",
   "author": "agent-ly",
   "license": "MIT",
+  "keywords": ["env", "environment", "variables"],
   "files": [
     "./dist/**/*"
   ],

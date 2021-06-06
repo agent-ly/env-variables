@@ -8,10 +8,22 @@ function getRawString(keyOrKeys: string | string[]): string | undefined {
     } else return process.env[keyOrKeys]
 }
 
+/**
+ * Parses an environment variable as a string
+ * @param keyOrKeys If an array, will look for the first exact match that exists
+ * @param defaultValue 
+ * @returns 
+ */
 export function string(keyOrKeys: string | string[], defaultValue: string): string {
     return getRawString(keyOrKeys) || defaultValue
 }
 
+/**
+ * Parses an environment variable as a boolean: '1', 'true', '0', 'false'
+ * @param key 
+ * @param defaultValue 
+ * @returns 
+ */
 export function boolean(key: string, defaultValue: boolean = false): boolean {
     const  strValue = getRawString(key)
     if (strValue === undefined) return defaultValue
@@ -37,10 +49,22 @@ function getNumber(key: string, defaultValue: number, isInteger: boolean) {
     return numberValue  
 }
 
+/**
+ * Parsese an environment variable as a number
+ * @param key 
+ * @param defaultValue 
+ * @returns 
+ */
 export function number(key: string, defaultValue: number): number {
     return getNumber(key, defaultValue, false)
 }
 
+/**
+ * Parsese an environment variable as an integer
+ * @param key 
+ * @param defaultValue 
+ * @returns 
+ */
 export function integer(key: string, defaultValue: number): number {
     return getNumber(key, defaultValue, true)
 }
