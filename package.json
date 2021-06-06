@@ -1,6 +1,6 @@
 {
   "name": "env-variables",
-  "version": "1.0.4",
+  "version": "1.0.3",
   "description": "Simple environment variable manager, use along with dotenv!",
   "author": "agent-ly",
   "license": "MIT",
@@ -13,7 +13,7 @@
     "./dist/**/*"
   ],
   "main": "./dist/index.js",
-  "types": ".dist/index.d.ts",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "test": "jest --config jestconfig.json",
