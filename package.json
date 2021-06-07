@@ -1,6 +1,6 @@
 {
   "name": "env-variables",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Simple environment variable parser, best used along with dotenv!",
   "author": "agent-ly",
   "license": "MIT",
