@@ -66,9 +66,9 @@ app.listen(config.port, config.host)
 ```
 
 ## API
-- `string(keyOrKeys, defaultValue)` Return's a string key
+- `string(keyOrKeys[, defaultValue])` Return's a string key
 
-- `number/integer(key, defaultValue)` Returns a number/integer
+- `number/integer(key[, defaultValue])` Returns a number/integer
 
 - `boolean(key[, defaultValue])` Returns a boolean, defaults to false
 

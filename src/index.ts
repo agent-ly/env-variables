@@ -15,7 +15,7 @@ function getRawString(keyOrKeys: string | string[]): string | undefined {
  * @param keyOrKeys If an array, will look for the first exact match that exists
  * @param defaultValue 
  */
-export function string(keyOrKeys: string | string[], defaultValue: string): string {
+export function string(keyOrKeys: string | string[], defaultValue?: string): string | undefined {
     return getRawString(keyOrKeys) || defaultValue
 }
 
@@ -41,7 +41,7 @@ export function boolean(key: string, defaultValue: boolean = false): boolean {
     }
 }
 
-function getNumber(key: string, defaultValue: number, isInteger: boolean) {
+function getNumber(key: string, defaultValue?: number, isInteger: boolean = false) {
     const  strValue = getRawString(key)
     if (!strValue) return defaultValue
     const numberValue = isInteger ? parseInt(strValue, 10) : parseFloat(strValue)
@@ -54,7 +54,7 @@ function getNumber(key: string, defaultValue: number, isInteger: boolean) {
  * @param key 
  * @param defaultValue 
  */
-export function number(key: string, defaultValue: number): number {
+export function number(key: string, defaultValue?: number): number | undefined {
     return getNumber(key, defaultValue, false)
 }
 
@@ -63,7 +63,7 @@ export function number(key: string, defaultValue: number): number {
  * @param key 
  * @param defaultValue 
  */
-export function integer(key: string, defaultValue: number): number {
+export function integer(key: string, defaultValue?: number): number | undefined {
     return getNumber(key, defaultValue, true)
 }
 
