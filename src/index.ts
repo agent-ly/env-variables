@@ -1,3 +1,5 @@
+import globToRegexp from 'glob-to-regexp'
+
 function getRawString(keyOrKeys: string | string[]): string | undefined {
     if (keyOrKeys instanceof Array) {
         for (let key of keyOrKeys) {
@@ -12,7 +14,6 @@ function getRawString(keyOrKeys: string | string[]): string | undefined {
  * Parses an environment variable as a string
  * @param keyOrKeys If an array, will look for the first exact match that exists
  * @param defaultValue 
- * @returns 
  */
 export function string(keyOrKeys: string | string[], defaultValue: string): string {
     return getRawString(keyOrKeys) || defaultValue
@@ -22,7 +23,6 @@ export function string(keyOrKeys: string | string[], defaultValue: string): stri
  * Parses an environment variable as a boolean: '1', 'true', '0', 'false'
  * @param key 
  * @param defaultValue 
- * @returns 
  */
 export function boolean(key: string, defaultValue: boolean = false): boolean {
     const  strValue = getRawString(key)
@@ -50,21 +50,33 @@ function getNumber(key: string, defaultValue: number, isInteger: boolean) {
 }
 
 /**
- * Parsese an environment variable as a number
+ * Parses an environment variable as a number
  * @param key 
  * @param defaultValue 
- * @returns 
  */
 export function number(key: string, defaultValue: number): number {
     return getNumber(key, defaultValue, false)
 }
 
 /**
- * Parsese an environment variable as an integer
+ * Parses an environment variable as an integer
  * @param key 
  * @param defaultValue 
- * @returns 
  */
 export function integer(key: string, defaultValue: number): number {
     return getNumber(key, defaultValue, true)
 }
+
+/**
+ * Maps all values by their key that matches `keyPattern`
+ * @param keyPattern 
+ */
+export function stringGlob(keyPattern: string): Record<string, string | any> {
+    const regex = globToRegexp(keyPattern)
+    const result: Record<string, string | any> = {}
+    for (let key in process.env)
+        if (regex.test(key)) result[key] = process.env[key]
+    return result
+}
+
+export default {string, boolean, number, integer, stringGlob}
