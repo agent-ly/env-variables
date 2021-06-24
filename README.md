@@ -1,4 +1,6 @@
 # env-variables
+![npm version](https://img.shields.io/npm/v/env-variables?style=flat-square)
+![npm downloads](https://img.shields.io/npm/dt/env-variables?style=flat-square)
 
 Simple environment variable parser, best used along with [dotenv](https://www.npmjs.com/package/dotenv)
 
